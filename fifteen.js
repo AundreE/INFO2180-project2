@@ -3,7 +3,13 @@
 $(document).ready(function(){
   $("div div div").addClass("puzzlepiece");
 
-  
+    //time variables
+    var startime=0;
+    var timer;
+    var totaltime=0;
+    var bestime=0;
+    var bestmoves=0;
+
     //positioning the background image
     var img1 = 0;
     var img2 = 0;
@@ -56,7 +62,14 @@ $(document).ready(function(){
       if(ismovevalid(this)){ swaptiles(this); }
     });
   }
+  var sec=0;
+  var moves=0;
+  var timer = function(){
+    var output =document.querySelector(".explanation");
+    output.innerHTML="The time you took: " +sec+"Amount of moves: "+moves;
+    sec++;
 
+  }
   //Checking to see if tile has a blank tile as a neighbour
   var ismovevalid = function(piece){
 
